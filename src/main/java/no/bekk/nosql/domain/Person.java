@@ -4,7 +4,6 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
-import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +20,7 @@ public class Person {
     @RelatedTo(type = "MEDLEM_AV")
     private Faggruppe faggruppe;
 
-    @RelatedToVia(type = "KAN")
+    @RelatedTo(type = "KAN")
     private Set<Fag> kan  = new HashSet<>();
 
     private Person() {
