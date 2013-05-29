@@ -26,9 +26,8 @@ public class Repository {
 
         Faggruppe nosql = new Faggruppe("NoSQL");
         nosql.leggTilMedlem(knut, kris, mik, eiv, veg, ket, and);
-        lagre(knut, kris, mik, eiv, veg, ket, and);
         lagre(nosql);
-
+        lagre(knut, kris, mik, eiv, veg, ket, and);
     }
 
     private void lagre(Object... objects) {

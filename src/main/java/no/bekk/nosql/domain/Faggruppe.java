@@ -6,7 +6,6 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.support.index.IndexType;
 
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
