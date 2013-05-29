@@ -4,7 +4,7 @@ import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
-import org.springframework.data.neo4j.support.index.IndexType;
+import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,13 +14,14 @@ public class Person {
 
     @GraphId
     Long id;
-    @Indexed(indexName = "person", indexType = IndexType.FULLTEXT)
+
+    @Indexed
     private String navn;
 
     @RelatedTo(type = "MEDLEM_AV")
     private Faggruppe faggruppe;
 
-    @RelatedTo(type = "KAN")
+    @RelatedToVia(type = "KAN")
     private Set<Fag> kan  = new HashSet<>();
 
     private Person() {

@@ -9,10 +9,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public interface PersonRepository extends GraphRepository<Person> {
+public interface PersonRepository
+        extends GraphRepository<Person> {
 
-    @Query("start gruppe=node:faggruppe(navn = {navn}) match person -[:MEDLEM_AV]-> gruppe return person")
-    public Iterable<Person> medlemmerAvFaggruppe(@Param("navn") String navn);
+    @Query(
+            "start gruppe=node:faggruppe(navn = {navn}) " +
+            "match person -[:MEDLEM_AV]-> gruppe " +
+            "return person")
+    public Iterable<Person> medlemmerAvFaggruppe(
+            @Param("navn") String navn);
 
     //@Query("start gruppe=node:faggruppe(navn = {navn}) match person -[:MEDLEM_AV]-> gruppe return person")
     //public Iterable<Person> hentMedlemmerAvFaggruppenSomPersonErMedlemAv(@Param("navn") String navn);
